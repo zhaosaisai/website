@@ -1,7 +1,8 @@
 const router = require('koa-router')()
 const {
     article,
-    category
+    category, 
+    tags
 } = require('./controllers')
 
 // articles
@@ -15,5 +16,8 @@ router.put('/article/uv/:id', article.increaseUv)
 // category
 router.post('/category/add', category.add)
 router.delete('/category/delete/:id', category.delete)
+// tags
+router.post('/tags/add', tags.add)
+router.delete('/tags/delete/:id', tags.delete)
 
 module.exports = router
