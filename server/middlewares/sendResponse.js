@@ -1,7 +1,8 @@
 module.exports = () => {
-    function render(type, results = {}) {
+    function render(type, results = {}, status = 200) {
         let json = null
         if(type === 'error') {
+            this.status = status
             json = {
                 'status': {
                     'status_code': -1,

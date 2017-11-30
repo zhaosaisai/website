@@ -19,8 +19,7 @@ module.exports = {
                 ctx.sendError("Insert failed!!!")
             }
         }catch(error) {
-            ctx.status = 400
-            ctx.sendError(error.message)
+            ctx.sendError(error.message, 400)
         }
     },
     /**
@@ -40,8 +39,7 @@ module.exports = {
                 ctx.sendError("Update failed!!!")
             }
         }catch(error) {
-            ctx.status = 400
-            ctx.sendError(error.message)
+            ctx.sendError(error.message, 400)
         }
     },
     /**
@@ -59,8 +57,7 @@ module.exports = {
                 ctx.sendError("Delete failed!!!")
             }
         }catch(error) {
-            ctx.status = 400
-            ctx.sendError(error.message)
+            ctx.sendError(error.message, 400)
         }
     },
     /**
@@ -77,8 +74,7 @@ module.exports = {
                 ctx.sendError("Select failed!!!")
             }
         }catch(error) {
-            ctx.status = 400
-            ctx.sendError(error.message)
+            ctx.sendError(error.message, 400)
         }
     },
     /**
@@ -95,8 +91,7 @@ module.exports = {
                 ctx.sendError("Select failed!!!")
             }
         }catch(error) {
-            ctx.status = 400
-            ctx.sendError(error.message)
+            ctx.sendError(error.message, 400)
         }
     },
     /**
@@ -115,8 +110,7 @@ module.exports = {
                 ctx.sendError("increase uv failed!!!")
             }
         }catch(error) {
-            ctx.status = 400
-            ctx.sendError(error.message)
+            ctx.sendError(error.message, 400)
         }
     }
 }
