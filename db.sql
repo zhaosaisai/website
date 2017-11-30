@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
     `category` int(11) DEFAULT -1,
     `tags` varchar(256) DEFAULT NULL,
     `relation_articles` varchar(256) DEFAULT NULL,
+    `uv` int(11) DEFAULT '0',
     `deleted` tinyint(4) DEFAULT 0,
     `create_by` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'zhaosaisai',
     `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
