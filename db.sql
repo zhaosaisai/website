@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
     `title` varchar(1024) NOT NULL,
     `description` text NOT NULL,
     `content` longtext NOT NULL,
-    `category` int(11) DEFAULT -1,
-    `tags` varchar(256) DEFAULT NULL,
+    -- `category` int(11) DEFAULT -1,
+    -- `tags` varchar(256) DEFAULT NULL,
     `relation_articles` varchar(256) DEFAULT NULL,
     `uv` int(11) DEFAULT '0',
     `deleted` tinyint(4) DEFAULT 0,
@@ -52,3 +52,17 @@ CREATE TABLE IF NOT EXISTS `comments` (
 CREATE TABLE IF NOT EXISTS `white_ips` (
     `ip` varchar(32) NOT NULL
 );
+
+-- 文章和标签对应表
+CREATE TABLE IF NOT EXISTS `article_tag_map`(
+    `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `article_id` int(11) NOT NULL,
+    `tag_id` int(11) NOT NULL
+)
+
+-- 文章和分类对应表
+CREATE TABLE IF NOT EXISTS `article_category_map`(
+    `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `article_id` int(11) NOT NULL,
+    `category_id` int(11) NOT NULL
+)

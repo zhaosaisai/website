@@ -5,7 +5,8 @@ module.exports = (options = {}) => {
         throw new Error('Configs of database must be a pure object')
     }
     return async (ctx, next) => {
-        ctx.querySql = query(options)
+        // ctx.querySql = query(options).querySql
+        Object.assign(ctx, query(options))
         await next()
     }
 }

@@ -7,9 +7,12 @@ module.exports = {
      */
     add: async (ctx, next) => {
         let { body = {} } = ctx.request
-        let { title, description, content } = body
+        let { title, description, content, tags = [] } = body
         try {
             util.isNotEmpty({ title, description, content })
+            if(!Array.isArray(tags)) {
+                throw new Error('tags param must ne an array!!!')
+            }
             let insertResult = await article.add(body, ctx)
             if(insertResult.affectedRows) {
                 ctx.sendJson({
