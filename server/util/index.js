@@ -15,5 +15,10 @@ module.exports = {
             prev[key] = data[key] || null
         })
         return prev
+    },
+    isInt: (num) => {
+        if (!(parseInt(num) === Number(num))) {
+            throw new Error("Params must be an int")
+        }
     }
 }
