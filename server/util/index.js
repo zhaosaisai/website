@@ -8,5 +8,12 @@ module.exports = {
                 return
             }
         }
+    },
+    selectRequiredFields: (prevData, data) => {
+        let prev = Object.assign({}, prevData)
+        Object.keys(prev).forEach(key => {
+            prev[key] = data[key] || null
+        })
+        return prev
     }
 }
