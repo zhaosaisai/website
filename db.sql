@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
     `title` varchar(1024) NOT NULL,
     `description` text NOT NULL,
     `content` longtext NOT NULL,
-    -- `category` int(11) DEFAULT -1,
+    `category` int(11) DEFAULT -1,
     -- `tags` varchar(256) DEFAULT NULL,
     `relation_articles` varchar(256) DEFAULT NULL,
     `uv` int(11) DEFAULT '0',

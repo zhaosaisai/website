@@ -9,8 +9,8 @@ const {
 router.post('/article/add', article.add)
 router.put('/article/update', article.update)
 router.delete('/article/delete/:id', article.delete)
-router.get('/article/select/:index', article.selectAll)
-router.get('/article/:id', article.selectById)
+router.get('/article/select/:index', article.selectAllArticles)
+router.get('/article/:id', article.selectArticleById)
 router.put('/article/uv/:id', article.increaseUv)
 
 // category

@@ -22,7 +22,7 @@ module.exports = {
                 ctx.sendError("Insert failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     },
     /**
@@ -42,7 +42,7 @@ module.exports = {
                 ctx.sendError("Update failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     },
     /**
@@ -60,41 +60,41 @@ module.exports = {
                 ctx.sendError("Delete failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     },
     /**
      * select all articles
      */
-    selectAll: async (ctx, next) => {
+    selectAllArticles: async (ctx, next) => {
         let { index } = ctx.params
         try{
             util.isInt(index)
-            let selectResults = await article.selectAll(index, ctx)
+            let selectResults = await article.selectAllArticles(index, ctx)
             if(selectResults) {
                 ctx.sendJson(selectResults)
             }else {
                 ctx.sendError("Select failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     },
     /**
      * select one article
      */
-    selectById: async (ctx, next) => {
+    selectArticleById: async (ctx, next) => {
         let { id } = ctx.params
         try {
             util.isInt(id)
-            let selectResults = await article.selectById(id, ctx)
+            let selectResults = await article.selectArticleById(id, ctx)
             if(selectResults) {
                 ctx.sendJson(selectResults)
             }else {
                 ctx.sendError("Select failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     },
     /**
@@ -113,7 +113,7 @@ module.exports = {
                 ctx.sendError("increase uv failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     }
 }

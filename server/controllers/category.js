@@ -19,7 +19,7 @@ module.exports = {
                 ctx.sendError("Insert failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     },
     /**
@@ -38,7 +38,7 @@ module.exports = {
                 ctx.sendError("Delete failed!!!")
             }
         }catch(error) {
-            ctx.sendError(error.message, 400)
+            ctx.sendError(error.message, error.status || 400)
         }
     }
 }
