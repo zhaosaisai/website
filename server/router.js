@@ -2,7 +2,8 @@ const router = require('koa-router')()
 const {
     article,
     category, 
-    tags
+    tags,
+    comments
 } = require('./controllers')
 
 // articles
@@ -23,5 +24,9 @@ router.post('/tags/add', tags.add)
 router.delete('/tags/delete/:id', tags.delete)
 router.get('/tags', tags.selectAllTags)
 router.get('/tag/:id', tags.getArticlesByTag)
+
+// comments
+router.post('/comment/add', comments.add)
+router.delete('/comment/delete/:id', comments.delete)
 
 module.exports = router
