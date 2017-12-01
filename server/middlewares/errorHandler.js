@@ -3,7 +3,7 @@ module.exports = () => {
         try {
           await next();
         } catch (err) {
-          ctx.sendError(err.message, err.status)
+          ctx.sendError(err.message, err.status || 500)
         }
     }
 }

@@ -19,5 +19,7 @@ router.delete('/category/delete/:id', category.delete)
 // tags
 router.post('/tags/add', tags.add)
 router.delete('/tags/delete/:id', tags.delete)
+router.get('/tags', tags.selectAllTags)
+router.get('/tags/:id', tags.getArticlesByTag)
 
 module.exports = router

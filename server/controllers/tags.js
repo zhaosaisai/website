@@ -32,5 +32,22 @@ module.exports = {
         }else {
             ctx.throw(500, "Delete failed!!!")
         }
+    },
+    selectAllTags: async (ctx, next) => {
+        let allTags = await tags.selectAllTags(ctx)
+        ctx.sendJson({
+            tags: allTags
+        })
+    },
+    /**
+     * Get all articles of a tag
+     */
+    getArticlesByTag: async (ctx, next) => {
+        let { id } = ctx.params
+        util.isInt(id)
+        let articles = await tags.getArticlesByTag(id, ctx)
+        ctx.sendJson({
+            articles: articles
+        })
     }
 }
