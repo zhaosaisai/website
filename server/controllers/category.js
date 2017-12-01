@@ -32,5 +32,25 @@ module.exports = {
         }else {
             ctx.throw(500,"Delete failed!!!")
         }
+    },
+    /**
+     * select all categories
+     */
+    selectAllCategories: async (ctx, next) => {
+        let allCategories = await category.selectAllCategories(ctx)
+        ctx.sendJson({
+            categories: allCategories
+        })
+    },
+    /**
+     * select an article by category id
+     */
+    getArticlesByCategory: async (ctx, next) => {
+        let { id } = ctx.params
+        util.isInt(id)
+        let articles = await category.getArticlesByCategory(id, ctx)
+        ctx.sendJson({
+            articles
+        })
     }
 }

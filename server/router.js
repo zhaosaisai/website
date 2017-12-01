@@ -16,10 +16,12 @@ router.put('/article/uv/:id', article.increaseUv)
 // category
 router.post('/category/add', category.add)
 router.delete('/category/delete/:id', category.delete)
+router.get('/categories', category.selectAllCategories)
+router.get('/category/:id', category.getArticlesByCategory)
 // tags
 router.post('/tags/add', tags.add)
 router.delete('/tags/delete/:id', tags.delete)
 router.get('/tags', tags.selectAllTags)
-router.get('/tags/:id', tags.getArticlesByTag)
+router.get('/tag/:id', tags.getArticlesByTag)
 
 module.exports = router

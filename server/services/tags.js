@@ -16,7 +16,7 @@ module.exports = {
     },
     selectAllTags: (ctx) => {
         return ctx.querySql(
-            'SELECT * FROM ??',
+            'SELECT * FROM ?? WHERE deleted = 0',
             [TABLE_NAME]
         )
     },
