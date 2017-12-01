@@ -16,7 +16,7 @@ module.exports = {
                     id: insertResult.insertId
                 })
             }else {
-                ctx.sendError("Insert failed!!!")
+                throw new Error("Insert failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
@@ -35,7 +35,7 @@ module.exports = {
                     id
                 })
             }else {
-                ctx.sendError("Delete failed!!!")
+                throw new Error("Delete failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)

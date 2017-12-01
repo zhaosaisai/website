@@ -19,7 +19,7 @@ module.exports = {
                     id: insertResult.insertId
                 })
             }else {
-                ctx.sendError("Insert failed!!!")
+                throw new Error("Insert failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
@@ -39,7 +39,7 @@ module.exports = {
                     id
                 })
             }else {
-                ctx.sendError("Update failed!!!")
+                throw new Error("Update failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
@@ -57,7 +57,7 @@ module.exports = {
                     id
                 })
             }else {
-                ctx.sendError("Delete failed!!!")
+                throw new Error("Delete failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
@@ -74,7 +74,7 @@ module.exports = {
             if(selectResults) {
                 ctx.sendJson(selectResults)
             }else {
-                ctx.sendError("Select failed!!!")
+                throw new Error("Select failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
@@ -91,7 +91,7 @@ module.exports = {
             if(selectResults) {
                 ctx.sendJson(selectResults)
             }else {
-                ctx.sendError("Select failed!!!")
+                throw new Error("Select failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
@@ -110,7 +110,7 @@ module.exports = {
                     id
                 })
             }else {
-                ctx.sendError("increase uv failed!!!")
+                throw new Error("increase uv failed!!!")
             }
         }catch(error) {
             ctx.sendError(error.message, error.status || 400)
