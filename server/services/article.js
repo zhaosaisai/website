@@ -1,8 +1,10 @@
 const TABLE_NAME = 'articles'
 const ARTICLE_TAG_MAP = 'article_tag_map'
 const ARTICLE_CATEGORY_MAP = 'article_category_map'
-const TAGS = 'TAGS'
-const CATEGORY = 'CATEGORIES'
+const CATEGORY = 'categories'
+const TAGS = 'tags'
+const COMMENTS = 'comments'
+
 const article = module.exports = {
     add: (data, ctx) => {
         const {
@@ -72,14 +74,15 @@ const article = module.exports = {
     },
     selectArticleById: async (article_id, ctx) => {
         var segmentArticle = await ctx.querySql(
-            'SELECT * FROM ?? WHERE id = ?',
+            'SELECT * FROM ?? WHERE id = ? AND deleted = 0',
             [TABLE_NAME, article_id]
         )
         if(segmentArticle && segmentArticle.length > 0){
-            const { id, category } = segmentArticle[0]
+            const { category } = segmentArticle[0]
             const categoryInfo = await article._selectCategory(category, ctx) || []
-            const tagInfo = await article._selectArticleTags(id, ctx) || []
-            Object.assign(segmentArticle[0], { tagInfo, categoryInfo })
+            const tagInfo = await article._selectArticleTags(article_id, ctx) || []
+            const comments = await article._selectComments(article_id, ctx) || []
+            Object.assign(segmentArticle[0], { tagInfo, categoryInfo, comments })
             return Promise.resolve(segmentArticle[0])
         }else {
             ctx.throw(404)
@@ -118,14 +121,20 @@ const article = module.exports = {
     },
     _selectArticles: (index, ctx) => {
         return ctx.querySql(
-            'SELECT * FROM ?? LIMIT ?, 10',
+            'SELECT * FROM ?? LIMIT ?, 10 WHERE deleted = 0',
             [TABLE_NAME, (index - 1) * 10]
         )
     },
     _selectCategory: (category, ctx) => {
         return ctx.querySql(
-            'SELECT id, name FROM ?? WHERE id = ?',
+            'SELECT id, name FROM ?? WHERE id = ? AND deleted = 0',
             [CATEGORY, category]
+        )
+    },
+    _selectComments: (article_id, ctx) => {
+        return ctx.querySql(
+            'SELECT id, ip, comment, create_time FROM ?? WHERE article_id = ? AND deleted = 0',
+            [COMMENTS, article_id]
         )
     } 
 }
