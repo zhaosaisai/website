@@ -6,15 +6,21 @@ const router = require('./router')
 const {
     sendResponse, 
     query,
-    forceBodyBeJson
+    forceBodyBeJson,
+    errorHandler
 } = require('./middlewares')
 
 // use middleware create by own
 app.use(sendResponse())
+app.use(errorHandler())
 app.use(query())
 app.use(bodyParser())
 app.use(forceBodyBeJson())
 app.use(router.routes()).use(router.allowedMethods())
+
+app.on('error', (error, ctx) => {
+    
+})
 
 if(module.parent) {
     module.exports = app

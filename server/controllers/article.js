@@ -8,21 +8,17 @@ module.exports = {
     add: async (ctx, next) => {
         let { body = {} } = ctx.request
         let { title, description, content, tags = [] } = body
-        try {
-            util.isNotEmpty({ title, description, content })
-            if(!Array.isArray(tags)) {
-                throw new Error('tags param must ne an array!!!')
-            }
-            let insertResult = await article.add(body, ctx)
-            if(insertResult.affectedRows) {
-                ctx.sendJson({
-                    id: insertResult.insertId
-                })
-            }else {
-                throw new Error("Insert failed!!!")
-            }
-        }catch(error) {
-            ctx.sendError(error.message, error.status || 400)
+        util.isNotEmpty({ title, description, content })
+        if(!Array.isArray(tags)) {
+            throw new Error('tags param must ne an array!!!')
+        }
+        let insertResult = await article.add(body, ctx)
+        if(insertResult.affectedRows) {
+            ctx.sendJson({
+                id: insertResult.insertId
+            })
+        }else {
+            ctx.throw(500, "Insert failed!!!")
         }
     },
     /**
@@ -31,18 +27,14 @@ module.exports = {
     update: async (ctx, next) => {
         let { body = {} } = ctx.request
         let { title, description, content, id} = body
-        try{
-            util.isNotEmpty({ title, description, content, id })
-            let updateResult = await article.update(body, ctx)
-            if(updateResult.affectedRows) {
-                ctx.sendJson({
-                    id
-                })
-            }else {
-                throw new Error("Update failed!!!")
-            }
-        }catch(error) {
-            ctx.sendError(error.message, error.status || 400)
+        util.isNotEmpty({ title, description, content, id })
+        let updateResult = await article.update(body, ctx)
+        if(updateResult.affectedRows) {
+            ctx.sendJson({
+                id
+            })
+        }else {
+            ctx.throw(500, "Update failed!!!")
         }
     },
     /**
@@ -50,17 +42,13 @@ module.exports = {
      */
     delete: async (ctx, next) => {
         let { id } = ctx.params
-        try {
-            let deleteResult = await article.delete(id, ctx)
-            if(deleteResult.affectedRows) {
-                ctx.sendJson({
-                    id
-                })
-            }else {
-                throw new Error("Delete failed!!!")
-            }
-        }catch(error) {
-            ctx.sendError(error.message, error.status || 400)
+        let deleteResult = await article.delete(id, ctx)
+        if(deleteResult.affectedRows) {
+            ctx.sendJson({
+                id
+            })
+        }else {
+            ctx.throw(500, "Delete failed!!!")
         }
     },
     /**
@@ -68,16 +56,12 @@ module.exports = {
      */
     selectAllArticles: async (ctx, next) => {
         let { index } = ctx.params
-        try{
-            util.isInt(index)
-            let selectResults = await article.selectAllArticles(index, ctx)
-            if(selectResults) {
-                ctx.sendJson(selectResults)
-            }else {
-                throw new Error("Select failed!!!")
-            }
-        }catch(error) {
-            ctx.sendError(error.message, error.status || 400)
+        util.isInt(index)
+        let selectResults = await article.selectAllArticles(index, ctx)
+        if(selectResults) {
+            ctx.sendJson(selectResults)
+        }else {
+            ctx.throw(500, "Select failed!!!")
         }
     },
     /**
@@ -85,16 +69,12 @@ module.exports = {
      */
     selectArticleById: async (ctx, next) => {
         let { id } = ctx.params
-        try {
-            util.isInt(id)
-            let selectResults = await article.selectArticleById(id, ctx)
-            if(selectResults) {
-                ctx.sendJson(selectResults)
-            }else {
-                throw new Error("Select failed!!!")
-            }
-        }catch(error) {
-            ctx.sendError(error.message, error.status || 400)
+        util.isInt(id)
+        let selectResults = await article.selectArticleById(id, ctx)
+        if(selectResults) {
+            ctx.sendJson(selectResults)
+        }else {
+            ctx.throw(500, "Select failed!!!")
         }
     },
     /**
@@ -102,18 +82,14 @@ module.exports = {
      */
     increaseUv: async (ctx, next) => {
         let { id } = ctx.params
-        try {
-            util.isInt(id)
-            let selectResults = await article.increaseUv(id, ctx)
-            if(selectResults) {
-                ctx.sendJson({
-                    id
-                })
-            }else {
-                throw new Error("increase uv failed!!!")
-            }
-        }catch(error) {
-            ctx.sendError(error.message, error.status || 400)
+        util.isInt(id)
+        let selectResults = await article.increaseUv(id, ctx)
+        if(selectResults) {
+            ctx.sendJson({
+                id
+            })
+        }else {
+            ctx.throw(500,"increase uv failed!!!")
         }
     }
 }

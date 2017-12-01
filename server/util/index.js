@@ -1,11 +1,12 @@
 module.exports = {
-    isNotEmpty: (object = {}) => {
+    isNotEmpty: (object = {}, ctx) => {
         let keys = Object.keys(object)
         for(let i = 0; i < keys.length; i++) {
             let value = object[keys[i]]
             if(value === undefined || value === null || value === "") {
-                throw new Error(`${keys[i]} cannot be empty!!!`)
-                return
+                const error = new Error(`${keys[i]} cannot be empty!!!`)
+                error.status = 400
+                throw error
             }
         }
     },
@@ -18,7 +19,9 @@ module.exports = {
     },
     isInt: (num) => {
         if (!(parseInt(num) === Number(num))) {
-            throw new Error("Params must be an int")
+            const error = new Error("Params must be an int")
+            error.status = 400
+            throw error
         }
     }
 }
