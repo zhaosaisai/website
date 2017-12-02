@@ -26,7 +26,7 @@ export default class Main extends React.Component {
     }
     render() {
         return (
-            <div className="full content-container">
+            <div className="full-width content-container">
                 <div className="main">
                     <MainHeader />
                     {this.props.children}

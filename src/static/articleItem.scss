@@ -1,0 +1,48 @@
+.article{
+    background: #fff;
+    box-sizing: border-box;
+    width: calc(50% - 10px);
+    margin-top: 0.2rem;
+    padding: 0.24rem 0.3rem 0.04rem;
+    border: 2px solid #fff;
+    cursor: pointer;
+    .article-title{
+        font-size: 0.2rem;
+        line-height: 0.29rem;
+        color: #2a2935;
+    }
+    .article-time{
+        padding: 0.115rem 0;
+        font-size: 0.12rem;
+        color: #aaa;
+        border-bottom: 1px dashed #DDD;
+    }
+    .article-description{
+        padding: 0.2rem 0;
+        line-height: 0.22rem;
+        color: #666;
+        font-size: 0.14rem;
+    }
+    .article-tags{
+        margin: 0.2rem 0 0.2rem;
+        font-size: 0;
+    }
+    &.showTags{
+        .article-time{
+            border: none;
+            padding: 0.115rem 0 0;
+        }
+        .article-description{
+            border-bottom: 1px dashed #DDD;
+        }
+    }
+    &:hover{
+        border-color: #32D3C3;
+    }
+    &:nth-child(2n+1){
+        margin-right: 10px;
+    }
+    &:nth-child(2n){
+        margin-left: 10px;
+    }
+}

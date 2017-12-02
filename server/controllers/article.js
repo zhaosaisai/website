@@ -59,7 +59,10 @@ module.exports = {
         util.isInt(index)
         let selectResults = await article.selectAllArticles(index, ctx)
         if(selectResults) {
-            ctx.sendJson(selectResults)
+            ctx.sendJson({
+                selectResults,
+                hasMore: selectResults.length === 10
+            })
         }else {
             ctx.throw(500, "Select failed!!!")
         }

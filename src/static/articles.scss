@@ -1,0 +1,22 @@
+.article-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.more{
+    font-size: 0.16rem;
+    padding: 0.4rem 0;
+    text-align: center;
+    .load-more-button{
+        width: 0.9rem;
+        border-radius: 0.45rem;
+        background-color: #32D3C3;
+        color: #fff;
+        width: 1.42rem;
+        line-height: 0.36rem;
+        cursor: pointer;
+    }
+    .load-all-already{
+        font-size: .12rem;
+        color: #666;
+    }
+}

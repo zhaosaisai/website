@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router'
+import 'static/tag.scss'
 
 export default class Tag extends React.Component {
     static propTypes = {
@@ -16,10 +18,12 @@ export default class Tag extends React.Component {
     }
     render() {
         const { isLink, pathPrefix, id, name } = this.props
-        isLink 
-        ? <Link to={`${pathPrefix}/${id}`}>
-            <span className="tag">{name}</span>
-         </Link>
-        : <span>{name}</span>
+        return (
+            isLink 
+            ? <Link to={`${pathPrefix}/${id}`}>
+                <span className="tag">{name}</span>
+             </Link>
+            : <span className="tag">{name}</span>
+        )
     }
 }

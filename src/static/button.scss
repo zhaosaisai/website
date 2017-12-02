@@ -1,0 +1,14 @@
+.base-button{
+    display: inline-block;
+    line-height: 0.3rem;
+    text-align: center;
+    cursor: auto;
+    border: none;
+    &.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    &:hover{
+        opacity: 0.8;
+    }
+}

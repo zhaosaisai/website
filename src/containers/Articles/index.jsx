@@ -8,25 +8,41 @@ export default class ArticlesContainer extends React.Component {
         super(props)
         this.state = {
             index: 1,
-            articles: []
+            articles: [],
+            isLoadingArticle: false,
+            hasMore: true
         }
     }
     componentDidMount() {
-        http.get(GET_ARTICLES({index: 1}))
-            .then(data => {
-                this.setState(prevState => {
-                    return {
-                        index: data.error ? prevState.index : prevState.index + 1,
-                        articles: data
-                    }
-                })
+        this.getArticles()
+    }
+    getArticles() {
+        this.setState({
+            isLoadingArticle: true
+        })
+        http.get(GET_ARTICLES({index: this.state.index}))
+        .then(data => {
+            /**
+             * 这一块是我偷懒才这样写的，放心，我会把错误处理拎出来的。
+             */
+            this.setState(prevState => {
+                return {
+                    index: data.error ? prevState.index : prevState.index + 1,
+                    articles: data.error ? prevState.articles : [...prevState.articles, ...data.selectResults],
+                    hasMore: data.error ? hasMore : data.hasMore,
+                    isLoadingArticle: false
+                }
             })
+        })
     }
     render() {
-        const { articles } = this.state
+        const { articles, isLoadingArticle, hasMore } = this.state
         return (
             <Articles 
                 articles={articles}
+                getArticles={this.getArticles.bind(this)}
+                isLoadingArticle={isLoadingArticle}
+                hasMore={hasMore}
             />
         )
     }
