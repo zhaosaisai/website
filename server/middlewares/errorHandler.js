@@ -3,7 +3,10 @@ module.exports = () => {
         try {
           await next();
         } catch (err) {
-          ctx.sendError(err.message, err.status || 500)
+          ctx.sendError({
+            reason: err.message,
+            code: err.status
+          })
         }
     }
 }

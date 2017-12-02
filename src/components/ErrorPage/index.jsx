@@ -12,11 +12,13 @@ const ErrorPageItem = (props) => {
 
 export default class ErrorPage extends React.Component {
     static propTypes = {
-        statusCode: PropTypes.number
+        statusCode: PropTypes.number,
+        statusReason: PropTypes.string
     }
     
     static defaultProps = {
-        statusCode: 404
+        statusCode: 404,
+        statusReason: ''
     }
 
     constructor(props) {
@@ -24,7 +26,7 @@ export default class ErrorPage extends React.Component {
     }
 
     render() {
-        const { statusCode } = this.props
-        return <ErrorPageItem statusReason={statusReasonConfig[statusCode]}/>
+        const { statusCode, statusReason } = this.props
+        return <ErrorPageItem statusReason={statusReason || statusReasonConfig[statusCode]}/>
     }
 }

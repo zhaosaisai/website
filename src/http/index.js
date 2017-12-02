@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 axios.interceptors.response.use(response => {
-    console.log(response)
-    if(response.status >= 200 && response.status < 200) {
+    if(response.status >= 200 && response.status < 300) {
         let data = response.data
         if(data.status && data.status.status_code !== 0) {
             return {
@@ -13,8 +12,6 @@ axios.interceptors.response.use(response => {
             return data.result
         }
     }
-}, (error) => {
-
 })
 
 export default axios

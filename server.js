@@ -12,7 +12,7 @@ const server = new webpackDevServer(compiler, {
         colors: true
     },
     proxy: {
-        "/plus": {
+        "/api": {
             "target": "http://localhost:3000/",
             "changeOrigin": true,
             "secure": false

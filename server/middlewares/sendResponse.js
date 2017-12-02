@@ -5,15 +5,15 @@ module.exports = () => {
             this.status = status
             json = {
                 'status': {
-                    'status_code': -1,
-                    'status_reason': results
+                    'status_code': typeof results === 'string' ? -1 : results['code'],
+                    'status_reason': typeof results === 'string' ? results : results['reason']
                 },
                 'result': null
             }
         }else {
             json = {
                 'status': {
-                    'statuc_code': 0,
+                    'status_code': 0,
                     'status_reason': null
                 },
                 'result': results
