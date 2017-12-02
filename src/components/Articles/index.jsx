@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ErrorPage from 'components/ErrorPage'
 import ArticleItem from 'components/Articles/ArticleItem'
 import Button from 'components/Button'
+import MainHeader from 'components/MainHeader'
 import 'static/articles.scss'
 
 export default class Articles extends React.Component {
@@ -30,6 +31,7 @@ export default class Articles extends React.Component {
             articles.error
             ? <ErrorPage statusReason={articles.errorMsg}/>
             : <div>
+                <MainHeader />
                 <div className="article-wrapper">
                     {
                             articles.map(article => {

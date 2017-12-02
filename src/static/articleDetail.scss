@@ -1,0 +1,33 @@
+.article-content-wrapper{
+    .article-header{
+        text-align: center;
+        padding-top: 0.5rem;
+        margin-bottom: 0.15rem;
+        header{
+            font-size: 0.33rem;
+            color: #2A2935;
+            font-weight: bold;
+        }
+        .article-create-info {
+            margin-top: 0.12rem;
+            font-size: 0.12rem;
+            color: #999999;
+        }
+        &:after{
+            content: '';
+            display: block;
+            border-bottom: 1px solid #999999;
+            -webkit-transform: scale(1, 0.5);
+            transform: scale(1, 0.5);
+            margin-top: 0.3rem;
+        }
+    }
+    .article-content{
+        padding-bottom: 0.3rem;
+        border-bottom: 1px #ddd dashed;
+        margin-bottom: 0.2rem;
+    }
+    .article-tag{
+        padding-bottom: 0.2rem;
+    }
+}
