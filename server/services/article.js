@@ -121,7 +121,7 @@ const article = module.exports = {
     },
     _selectArticles: (index, ctx) => {
         return ctx.querySql(
-            'SELECT * FROM ?? LIMIT ?, 10 WHERE deleted = 0',
+            'SELECT * FROM ?? WHERE deleted = 0 LIMIT ?, 10',
             [TABLE_NAME, (index - 1) * 10]
         )
     },

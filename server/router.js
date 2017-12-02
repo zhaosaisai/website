@@ -7,26 +7,26 @@ const {
 } = require('./controllers')
 
 // articles
-router.post('/article/add', article.add)
-router.put('/article/update', article.update)
-router.delete('/article/delete/:id', article.delete)
-router.get('/article/select/:index', article.selectAllArticles)
-router.get('/article/:id', article.selectArticleById)
-router.put('/article/uv/:id', article.increaseUv)
+router.post('/api/article/add', article.add)
+router.put('/api/article/update', article.update)
+router.delete('/api/article/delete/:id', article.delete)
+router.get('/api/article/select/:index', article.selectAllArticles)
+router.get('/api/article/:id', article.selectArticleById)
+router.put('/api/article/uv/:id', article.increaseUv)
 
 // category
-router.post('/category/add', category.add)
-router.delete('/category/delete/:id', category.delete)
-router.get('/categories', category.selectAllCategories)
-router.get('/category/:id', category.getArticlesByCategory)
+router.post('/api/category/add', category.add)
+router.delete('/api/category/delete/:id', category.delete)
+router.get('/api/categories', category.selectAllCategories)
+router.get('/api/category/:id', category.getArticlesByCategory)
 // tags
-router.post('/tags/add', tags.add)
-router.delete('/tags/delete/:id', tags.delete)
-router.get('/tags', tags.selectAllTags)
-router.get('/tag/:id', tags.getArticlesByTag)
+router.post('/api/tags/add', tags.add)
+router.delete('/api/tags/delete/:id', tags.delete)
+router.get('/api/tags', tags.selectAllTags)
+router.get('/api/tag/:id', tags.getArticlesByTag)
 
 // comments
-router.post('/comment/add', comments.add)
-router.delete('/comment/delete/:id', comments.delete)
+router.post('/api/comment/add', comments.add)
+router.delete('/api/comment/delete/:id', comments.delete)
 
 module.exports = router

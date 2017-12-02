@@ -1,0 +1,39 @@
+.content-container{
+    padding-left: 15%;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    .main{
+        margin: 0 0.5rem;
+        .tag-header{
+            display: block;
+            font-size: 0.14rem;
+            color: #32D3C3;
+            height: 0.48rem;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            span{
+                display: inline-block;
+                margin-left: 0;
+                height: 0.47rem;
+                line-height: 0.48rem;
+                border-bottom: 2px solid transparent;
+                color: #666;
+                &:nth-child(n+2) {
+                    margin-left: 0.25rem;
+                }
+                &.current-tag{
+                    border-bottom-color: #32D3C3;
+                }
+                &.clickable{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@media (min-device-width: 375px) and (max-width: 768px) {
+   .content-container{
+       padding-left: 0;
+   }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import getRoute from 'router/getRoute'
 import Nav from 'containers/Nav'
+import Main from 'containers/Main'
 import 'static/common.scss'
 
 class App extends React.Component {
@@ -12,9 +13,9 @@ class App extends React.Component {
         return (
             <div className="full container">
                 <Nav />
-                <div className="full content-container">
+                <Main>
                     {this.props.children}
-                </div>
+                </Main>
             </div>
         )
     }

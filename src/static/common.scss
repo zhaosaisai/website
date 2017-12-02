@@ -25,21 +25,12 @@ a, button, input{
 // 首页的样式
 .container {
    display: flex;
-   .content-container{
-       padding-left: 15%;
-       box-sizing: border-box;
-   }
 }
 
 @media (min-device-width: 375px) and (max-width: 768px) {
     html {
       font-size: 117.1875px; 
     } 
-    .container{
-        .content-container{
-            padding: 0;
-        }
-    }
 }
 
 @media (min-width: 768px) {
