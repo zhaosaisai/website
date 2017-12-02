@@ -10,9 +10,11 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="full container">
                 <Nav />
-                {this.props.children}
+                <div className="full content-container">
+                    {this.props.children}
+                </div>
             </div>
         )
     }

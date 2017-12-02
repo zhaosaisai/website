@@ -1,25 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router'
 import navConfig from './navConfig'
+import Nav from 'components/Nav'
 
-export default class Nav extends React.Component {
+export default class NavContainer extends React.Component {
     constructor(props) {
         super(props)
     }
     render() {
         return (
             <div>
-                {
-                    navConfig.map(nav => {
-                        return (
-                            <div key={nav['path']}>
-                                <Link to={nav['path']}>
-                                    {nav['title']}
-                                </Link> 
-                            </div>
-                        )
-                    })
-                }
+                <Nav navs={navConfig}/>
             </div>
         )
     }
