@@ -94,5 +94,18 @@ module.exports = {
         }else {
             ctx.throw(500,"increase uv failed!!!")
         }
+    },
+    /**
+     * Get article by year
+     */
+    getArticleByYear: async (ctx, next) => {
+        let { year } = ctx.params
+        util.isInt(year)
+        let allYears = await article.getYearsGroup(ctx)
+        let articleInfo = await article.selectArticleByYear(year, ctx)
+        ctx.sendJson({
+            allYears,
+            articleInfo
+        })
     }
 }

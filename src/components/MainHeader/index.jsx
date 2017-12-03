@@ -1,9 +1,10 @@
 import React from 'react'
 
 const MainHeader = (props) => {
+    const archives = props.archives
     return (
         <div className="tag-header">
-            <span className="current-tag">
+            {/* <span className="current-tag">
                 最新文章
             </span>
             <span className="clickable">
@@ -14,7 +15,10 @@ const MainHeader = (props) => {
             </span>
             <span>
                 最新文章
-            </span>
+            </span> */}
+            {
+                archives && typeof archives === 'string' ? <span className="current-tag">{archives}</span> : null
+            }
         </div>
     )
 }

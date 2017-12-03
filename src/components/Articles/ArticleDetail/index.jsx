@@ -34,7 +34,7 @@ export default class ArticleDetail extends React.Component {
                 </div>
                 <div className="article-content">
                     <Markdown 
-                        markdownSrc={'# 123456'}
+                        markdownSrc={content}
                     />
                 </div>
                 <footer className="article-tag">

@@ -31,7 +31,7 @@ export default class Articles extends React.Component {
             articles.error
             ? <ErrorPage statusReason={articles.errorMsg}/>
             : <div>
-                <MainHeader />
+                <MainHeader archives="最新文章"/>
                 <div className="article-wrapper">
                     {
                             articles.map(article => {

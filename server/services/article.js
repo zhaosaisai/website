@@ -88,6 +88,18 @@ const article = module.exports = {
             ctx.throw(404)
         }
     },
+    selectArticleByYear: async(year, ctx) => {
+        return ctx.querySql(
+            'SELECT * FROM ?? WHERE YEAR(create_time) = ?',
+            [TABLE_NAME, year]
+        )
+    },
+    getYearsGroup: (ctx) => {
+        return ctx.querySql(
+            'SELECT  YEAR(create_time) AS year from ?? GROUP BY YEAR(create_time) ORDER BY year DESC',
+            [TABLE_NAME]
+        )
+    },
     delete: (id, ctx) => {
         return ctx.querySql(
             'UPDATE ?? SET deleted = 1 WHERE id = ?',
@@ -136,5 +148,5 @@ const article = module.exports = {
             'SELECT id, ip, comment, create_time FROM ?? WHERE article_id = ? AND deleted = 0',
             [COMMENTS, article_id]
         )
-    } 
+    }
 }

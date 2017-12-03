@@ -9,10 +9,11 @@ const {
 // articles
 router.post('/api/article/add', article.add)
 router.put('/api/article/update', article.update)
+router.put('/api/article/uv/:id', article.increaseUv)
 router.delete('/api/article/delete/:id', article.delete)
 router.get('/api/article/select/:index', article.selectAllArticles)
 router.get('/api/article/:id', article.selectArticleById)
-router.put('/api/article/uv/:id', article.increaseUv)
+router.get('/api/article/year/:year', article.getArticleByYear)
 
 // category
 router.post('/api/category/add', category.add)
