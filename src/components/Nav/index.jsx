@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
+import emoji from 'node-emoji'
 import Footer from 'components/Footer'
 
 import 'static/nav.scss'
@@ -27,7 +28,9 @@ export default class Nav extends React.Component {
         return (
             <div className="nav-container">
                 <div className="nav-bar-inner">
-                    藏经阁
+                    <Link to="/">
+                        藏经阁 {emoji.get("laughing")} {emoji.get("laughing")} {emoji.get("laughing")}
+                    </Link>
                 </div>
                 <div className="nav-link-wrapper">
                     {

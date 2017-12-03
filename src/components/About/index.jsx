@@ -36,7 +36,7 @@ export default class About extends React.Component {
                         <ul className={cx({
                             "reverse": this.state.reverse
                         })}>
-                            <li>赵赛赛</li>
+                            <li>赵赛赛，call me 赛赛 please {emoji.get('flag-cn')}</li>
                             <li>年龄：不大，青春年华。二十有四吗 {emoji.get('question')}{emoji.get('question')}{emoji.get('question')}</li>
                             <li>伪全栈工程师</li>
                             <li>专职打杂工程师</li>
