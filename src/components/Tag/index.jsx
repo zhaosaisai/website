@@ -27,7 +27,7 @@ export default class Tag extends React.Component {
         const { isLink, pathPrefix, id, name, className, showTime, create_time } = this.props
         return (
             isLink 
-            ? <Link to={`${pathPrefix}/${id}`}>
+            ? <Link to={`${pathPrefix}/${name}/${id}`}>
                 <span className={cx("tag", className)}><span>{name}</span>{showTime ? <span>{formatDate(create_time)}</span> : null}</span>
              </Link>
             : <span className={cx("tag", className)}><span>{name}</span>{showTime ? <span>{formatDate(create_time)}</span> : null}</span>

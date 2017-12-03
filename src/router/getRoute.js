@@ -34,9 +34,7 @@ const getRoute = (rootApp) => {
                 <Route path="/categories" component={Categories}></Route>
                 <Route path="/about" component={About}></Route>
                 <Route path="/article/:id" component={ArticleDetail} onEnter={onEnter}></Route>
-                <Router path="/tag/:id" component={TagArticles}>
-
-                </Router>
+                <Router path="/tag/:name/:id" component={TagArticles} onEnter={onEnter}></Router>
                 <Route path="/404" component={ErrorPage}></Route>
                 <Redirect from='*' to='/404' />
             </Route>

@@ -8,3 +8,5 @@ export const GET_ARTICLE_BY_ID = (options) => formatApi('api/article/:id', optio
 export const GET_ARTICLE_ARCHIVE = (options) => formatApi('/api/article/year/:year', options)
 // 获取所有的标签
 export const GET_ALL_TAGS = '/api/tags'
+// 获取一个标签下面所有的文章
+export const GET_TAG_ARTICLES = (options) => formatApi('/api/tag/:id', options)
