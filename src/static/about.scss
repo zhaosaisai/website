@@ -1,0 +1,31 @@
+.information{
+    .story{
+        padding-bottom: 0.3rem;
+    }
+    .i-am{
+        padding-left: 0.3rem;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            transition: all .3s linear;
+            &.reverse{
+                flex-direction: column-reverse;
+            }
+        }
+        li{
+            line-height: 0.3rem;
+            width: 100%;
+            a{
+                color: #32D3C3;
+            }
+            .large{
+                font-size: 0.18rem;
+            }
+            .clickable{
+                cursor: pointer;
+                color: #32D3C3;
+            }
+        }
+    }
+}
