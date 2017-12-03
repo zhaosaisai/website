@@ -1,0 +1,14 @@
+.title-header{
+    margin: 0.3rem 0;
+    text-align: center;
+    line-height: 0.3rem;
+    font-size: 0.24rem;
+    &:after{
+        content: '';
+        display: block;
+        border-bottom: 1px solid #999999;
+        -webkit-transform: scale(1, 0.5);
+        transform: scale(1, 0.5);
+        margin-top: 0.3rem;
+    }
+}

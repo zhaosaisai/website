@@ -1,0 +1,46 @@
+.tag-badge-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    .tag-badge-item{
+        // background: red;
+        width: 20%;
+        box-sizing: border-box;
+        font-size: 0.12rem;
+        text-align: center;
+        .tag-badge{
+            background: #eaedf1;
+            color: #4c4040;
+            position: relative;
+            display: block;
+            margin: 0 6px 6px 0;
+            padding: 0.15rem 0;
+            border-radius: 5px;
+            transition: all .3s linear;
+            &:hover, &.current-tag{
+                box-shadow: 0px 0px 4px #32D3C3;
+                color: #131111;
+                &::after, &::before{
+                    box-shadow: 0px 0px 4px #32D3C3;
+                }
+            }
+            span{
+                display: block;
+            }
+            &::after, &::before{
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 100%;
+                background: #fff;
+                top: 8px;
+            }
+            &::after{
+                left: 8px;
+            }
+            &::before{
+                right: 8px;
+            }
+        }
+    }
+}

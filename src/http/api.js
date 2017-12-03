@@ -6,3 +6,5 @@ export const GET_ARTICLES = (options) => formatApi('/api/article/select/:index',
 export const GET_ARTICLE_BY_ID = (options) => formatApi('api/article/:id', options)
 // 获取文章归档
 export const GET_ARTICLE_ARCHIVE = (options) => formatApi('/api/article/year/:year', options)
+// 获取所有的标签
+export const GET_ALL_TAGS = '/api/tags'
