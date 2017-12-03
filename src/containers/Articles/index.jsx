@@ -29,7 +29,7 @@ export default class ArticlesContainer extends React.Component {
                 return {
                     index: data.error ? prevState.index : prevState.index + 1,
                     articles: data.error ? prevState.articles : [...prevState.articles, ...data.selectResults],
-                    hasMore: data.error ? hasMore : data.hasMore,
+                    hasMore: data.error ? prevState.hasMore : data.hasMore,
                     isLoadingArticle: false
                 }
             })

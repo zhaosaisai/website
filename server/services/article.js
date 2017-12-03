@@ -90,7 +90,7 @@ const article = module.exports = {
     },
     selectArticleByYear: async(year, ctx) => {
         return ctx.querySql(
-            'SELECT * FROM ?? WHERE YEAR(create_time) = ?',
+            'SELECT * FROM ?? WHERE YEAR(create_time) = ? AND deleted = 0',
             [TABLE_NAME, year]
         )
     },

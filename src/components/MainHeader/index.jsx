@@ -1,23 +1,20 @@
 import React from 'react'
+import cx from 'classnames'
 
 const MainHeader = (props) => {
-    const archives = props.archives
+    const { archives, currentYear, handleYearChange } = props
     return (
         <div className="tag-header">
-            {/* <span className="current-tag">
-                最新文章
-            </span>
-            <span className="clickable">
-                最新文章
-            </span>
-            <span>
-                最新文章
-            </span>
-            <span>
-                最新文章
-            </span> */}
             {
-                archives && typeof archives === 'string' ? <span className="current-tag">{archives}</span> : null
+                archives && typeof archives === 'string' ? <span className="current-tag">{archives}</span> : 
+                archives.map(archive => <span key={archive.year} className={cx({
+                    "current-tag": archive.year == currentYear,
+                    "clickable": archive.year != currentYear
+                })}
+                onClick={() => {
+                        handleYearChange && handleYearChange(archive.year)
+                    }}
+                >{archive.year}</span>)
             }
         </div>
     )

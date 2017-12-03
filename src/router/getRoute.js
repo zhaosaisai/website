@@ -11,6 +11,7 @@ import Articles from 'containers/Articles'
 import ArticleDetail from 'containers/Articles/ArticleDetail'
 import Tags from 'containers/Tags'
 import Categories from 'containers/Categories'
+import Archives from 'containers/Archives'
 import About from 'containers/About'
 import ErrorPage from 'components/ErrorPage'
 
@@ -21,6 +22,7 @@ const getRoute = (rootApp) => {
                 <IndexRoute component={Articles}/>
                 <Route path="/articles" component={Articles}></Route>
                 <Route path="/tags" component={Tags}></Route>
+                <Route path="/archives" component={Archives}></Route>
                 <Route path="/categories" component={Categories}></Route>
                 <Route path="/about" component={About}></Route>
                 <Route path="/article/:id" component={ArticleDetail} onEnter={(props) => {
